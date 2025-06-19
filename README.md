@@ -13,6 +13,7 @@ A simple light/dark mode toggle built using only **HTML**. This project demonstr
 ## 📁 Files
 
 dark-mode-toggle/
+
 └── index.html
 
 ## 💡 How to Use
