@@ -1,50 +1,41 @@
-//Toggle light/dark mode with a button
-// This code toggles between light and dark mode when a button is clicked.
-// It uses the classList property to add or remove the "dark-mode" class from the body element
-// and changes the button text accordingly.
-// Create and append the button
-const button = document.createElement("button");
-button.id = "toggle-button";
-button.textContent = "Switch to Dark Mode";
-document.body.appendChild(button);
-
-// Create and append the CSS for dark mode and button styling
-const style = document.createElement("style");
-style.innerHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Mode Toggle</title>
+  <style>
     body.dark-mode {
-        background-color: #121212;
-        color: #ffffff;
+      background-color: #121212;
+      color: #ffffff;
     }
-    #toggle-button {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        margin: 20px;
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 20px;
     }
-`;
-document.head.appendChild(style);
+  </style>
+</head>
+<body>
+  <button id="toggle-button">Switch to Dark Mode</button>
 
-// Toggle logic
-button.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    button.textContent = document.body.classList.contains("dark-mode")
+  <script>
+    const toggleButton = document.getElementById("toggle-button");
+    const body = document.body;
+
+    // Set initial text based on current mode
+    toggleButton.textContent = body.classList.contains("dark-mode")
+      ? "Switch to Light Mode"
+      : "Switch to Dark Mode";
+
+    toggleButton.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      toggleButton.textContent = body.classList.contains("dark-mode")
         ? "Switch to Light Mode"
         : "Switch to Dark Mode";
-});
+    });
+  </script>
+</body>
+</html>
 
-// Set initial label based on current mode
-if (document.body.classList.contains("dark-mode")) {
-    button.textContent = "Switch to Light Mode";
-}
-
-// This code creates a button that toggles between light and dark mode when clicked.
-// It uses the classList property to add or remove the "dark-mode" class from the body element
-// and changes the button text accordingly.
-// The CSS styles for dark mode are defined in a <style> element and appended to the document head.
-// The button is created and appended to the body, and its initial text is set based on the current mode.
-// The button's onclick event handler toggles the dark mode class and updates the button text.
-// The initial setup checks if the body has the "dark-mode" class and sets the button text accordingly.
-// This code is a simple implementation of a light/dark mode toggle button using JavaScript.
-// The button is styled with padding, font size, and cursor properties.
-// The dark mode styles change the background color to a dark shade and the text color to white.
-// The button's text changes based on the current mode, providing a clear indication of the action to be taken.
